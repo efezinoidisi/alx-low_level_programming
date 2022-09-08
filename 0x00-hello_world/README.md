@@ -10,6 +10,8 @@ This directory contains scripts for my alx hello world project
 
 - 3-name is a script that compiles a C file and creates an executable named cisfun
 
-- 4-puts.c is a C program that prints exactly "Programing is like building a multilingual puzzle, followed by a new line
+- 4-puts.c is a C program that prints a string using the puts function
 
+- 5-printf.c is a C program that prints a string using the printf function
 
+- 6
