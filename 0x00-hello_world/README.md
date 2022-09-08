@@ -1,6 +1,6 @@
 ### Hello world project
 
-This directory contains scripts for my alx hello world project
+This directory contains scripts and C codes for my alx hello world project
 
 - 0-preprocessor is a script that runs a C file through the preprocessor and saves the result into another file
 
@@ -14,4 +14,6 @@ This directory contains scripts for my alx hello world project
 
 - 5-printf.c is a C program that prints a string using the printf function
 
-- 6
+- 6-size.c is a C program that prints the size of various c data types on the computer it is compiled and run on.
+
+- 7-
