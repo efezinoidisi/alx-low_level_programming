@@ -16,4 +16,6 @@ This directory contains scripts and C codes for my alx hello world project
 
 - 6-size.c is a C program that prints the size of various c data types on the computer it is compiled and run on.
 
-- 7-
+- 100-intel is a script that generates assembly code of a C source code and saves it in an output file
+
+
