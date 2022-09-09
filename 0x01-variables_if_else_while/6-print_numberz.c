@@ -8,7 +8,7 @@
 
 int main(void)
 {
-	char x;
+	unsigned int x;
 
 	for (x = '0'; x < ':'; x++)
 		putchar(x);
