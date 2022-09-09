@@ -18,6 +18,8 @@
 
 - 7-print_tebahpla.c prints all the lowercase alphabets in reverse
 
+- 8-print_base16.c prints all the numbers of base 16 in lower case
+
 - 9-print_comb.c prints all possible combinations of single digit decimal numbers separated by a comma using the putchar function
 
 
