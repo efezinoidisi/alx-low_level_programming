@@ -4,4 +4,4 @@
 
 - 0-positive_or_negative is a C program that checks if a random number is positive or negative
 
- 
+- 2-print_alphabet.c prints the letters of the alphabet in lowercase followed by a new line 
