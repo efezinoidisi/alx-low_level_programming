@@ -12,4 +12,6 @@
 
 - 5-print_numbers.c prints all single digit numbers of base 10 starting from 0
 
- 
+- 6-print_numberz prints all single digit decimal numbers starting from 0 using the putchar function
+
+
