@@ -8,4 +8,6 @@
 
 - 3-print_alphabets.c prints the both the uppercase and lowercase of the alphabet
 
+- 4-print_alphabt.c prints the alphabet in lowercase except letter q and e
+
  
