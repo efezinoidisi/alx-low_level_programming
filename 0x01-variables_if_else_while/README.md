@@ -14,4 +14,6 @@
 
 - 6-print_numberz prints all single digit decimal numbers starting from 0 using the putchar function
 
+- 7-print_tebahpla.c prints all the lowercase alphabets in reverse
+
 
