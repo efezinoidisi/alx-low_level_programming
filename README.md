@@ -2,4 +2,6 @@
 
 Alx low level programming projects
 
-- 0x00-hello_world
+- C hello world project
+
+- Variables, If else while project
