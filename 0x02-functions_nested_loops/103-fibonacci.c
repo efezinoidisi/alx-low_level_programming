@@ -8,10 +8,12 @@
 
 int main(void)
 {
+	int a;
 	unsigned long b, c, d, sum;
 
 	b = 1;
 	c = 2;
+	sum = 0;
 	while (b < 4000000)
 	{
 		if (b % 2 == 0)
