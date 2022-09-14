@@ -1,14 +1,14 @@
 #include <stdio.h>
 
 /**
- * natural_numbers - sum multiples
+ * main - sum multiples
  *
  * Description: sum all of the multiples of 3 and 5 below 1024
  *
  * Return: 0
  */
 
-int natural_numbers(void)
+int main(void)
 {
 	int a, sum;
 
