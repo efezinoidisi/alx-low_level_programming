@@ -8,13 +8,14 @@
 
 int main(void)
 {
-	int a, b, c, d;
+	int a;
+	unsigned long b, c, d;
 
 	b = 1;
 	c = 2;
 	for (a = 0; a < 50; a++)
 	{
-		printf("%d", b);
+		printf("%lu", b);
 		if (a < 49)
 		{
 			putchar(',');
