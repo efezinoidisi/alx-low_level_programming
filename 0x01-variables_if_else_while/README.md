@@ -22,4 +22,6 @@
 
 - 9-print_comb.c prints all possible combinations of single digit decimal numbers separated by a comma using the putchar function
 
+- 100-print_com3.c prints all possible combinations of two digits
+
 
