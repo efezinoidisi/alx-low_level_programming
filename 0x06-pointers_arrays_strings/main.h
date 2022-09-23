@@ -11,5 +11,6 @@ char *string_toupper(char *);
 void print_number(int n);
 char *infinite_add(char *n1, char *n2, char *r, int size_r);
 char *cap_string(char *str);
+char *leet(char *str);
 
 #endif /* MAIN_H */
