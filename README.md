@@ -12,4 +12,8 @@ Alx low level programming projects
 
 - Debugging
 
-- C pointers, arrays and string
+- C pointers, arrays and strings
+
+- C More Pointers, arrays and strings
+
+- C Even more pointers, arrays and strings
