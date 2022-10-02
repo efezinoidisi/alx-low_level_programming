@@ -8,25 +8,21 @@
 
 int main(void)
 {
-	int a;
-	int b;
-	int c;
+	int a, c;
 
-	b = '9';
-	for (a = '0'; a < b ; ++a)
+	for (a = 0; a < 10; a++)
 	{
-		for (c = a; c <= b ; c++)
+		c = a + 1;
+		while (c <= 9)
 		{
-			if (a != c)
+			putchar(a + '0');
+			putchar(c + '0');
+			if ((a + 1) != 9)
 			{
-				putchar(a);
-				putchar(c);
-				if (a < c)
-				{
-					putchar(',');
-					putchar(' ');
-				}
+				putchar(',');
+				putchar(' ');
 			}
+			c++;
 		}
 	}
 	putchar('\n');
