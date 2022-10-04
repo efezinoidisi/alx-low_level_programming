@@ -29,6 +29,10 @@ char *str_concat(char *s1, char *s2)
 	char *str_cat;
 	unsigned int len1, len2, a, len, b;
 
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 	len1 = _strlen(s1);
 	len2 = _strlen(s2);
 	len = len1 + len2;
