@@ -52,7 +52,7 @@ char *argstostr(int ac, char **av)
 		for (b = 0; b < _strlen(av[a]); b++)
 			str[a][b] = av[a][b];
 		str[a][b] = '\n';
-		str[a][b +1] = '\0';
+		str[a][b + 1] = '\0';
 	}
 	str[a] = '\0';
 	return (*str);
