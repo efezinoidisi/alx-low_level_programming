@@ -1,4 +1,5 @@
 #include <stddef.h>
+#include <stdlib.h>
 
 /**
  * array_iterator - executes a function
@@ -13,6 +14,9 @@ void array_iterator(int *array, size_t size, void (*action)(int))
 {
 	size_t count;
 
-	for (count = 0; count < size; count++)
-		action(array[count]);
+	if (array != NULL && action != NULL)
+	{
+		for (count = 0; count < size; count++)
+			action(array[count]);
+	}
 }
