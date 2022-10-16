@@ -9,10 +9,10 @@
 
 unsigned int _strlen(char *str)
 {
-	unsigned int a;
+	unsigned int a = 0;
 
-	for (a = 0; *str != '\0'; a++)
-		str++;
+	while (str[a] != '\0')
+		a++;
 	return (a);
 }
 
@@ -45,14 +45,13 @@ unsigned int get_size(int ac, char **av)
 char *argstostr(int ac, char **av)
 {
 	char *str;
-	unsigned int j, k = 0;
-	int total;
+	int j, k = 0, total;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
 	total = get_size(ac, av);
-	str = malloc(sizeof(char) * (total + ac + ac));
+	str = malloc(sizeof(char) * (total + ac));
 	if (str == NULL)
 		return (NULL);
 	for (j = 0; j < ac; j++)
@@ -60,7 +59,7 @@ char *argstostr(int ac, char **av)
 		int len, i;
 
 		len = _strlen(av[j]);
-		for (i = 0; i < len; i++)
+		for (i = 0; i < len; i++, k++)
 		{
 			str[k] = av[j][i];
 		}
