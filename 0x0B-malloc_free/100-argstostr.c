@@ -17,6 +17,24 @@ unsigned int _strlen(char *str)
 }
 
 /**
+ * get_size - calculate the total length of strings
+ * @ac: number of arguments
+ * @av: argument vector
+ *
+ * Return: total length
+ */
+
+unsigned int get_size(int ac, char **av)
+{
+	unsigned int len = 0;
+	int i;
+
+	for (i = 0; i < ac; i++)
+		len += _strlen(av[i]);
+	return (len);
+}
+
+/**
  * argstostr - concatenates all arguments passed
  * @ac: number of arguments
  * @av: arguments array
@@ -26,34 +44,28 @@ unsigned int _strlen(char *str)
 
 char *argstostr(int ac, char **av)
 {
-	char **str;
-	unsigned int b;
-	int a;
+	char *str;
+	unsigned int j, k = 0;
+	int total;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
-	str = malloc(ac * sizeof(char *));
+
+	total = get_size(ac, av);
+	str = malloc(sizeof(char) * (total + ac + ac));
 	if (str == NULL)
 		return (NULL);
-	for (a = 0; a < ac; a++)
+	for (j = 0; j < ac; j++)
 	{
-		str[a] = malloc(_strlen(av[a]) * sizeof(char));
-		if (str[a] == NULL)
-		{
-			for (b = 0; b < (unsigned int)a; b++)
-				free(str[b]);
-			free(str);
-			return (NULL);
-		}
-	}
+		int len, i;
 
-	for (a = 0; a < ac; a++)
-	{
-		for (b = 0; b < _strlen(av[a]); b++)
-			str[a][b] = av[a][b];
-		str[a][b] = '\n';
-		str[a][b + 1] = '\0';
+		len = _strlen(av[j]);
+		for (i = 0; i < len; i++)
+		{
+			str[k] = av[j][i];
+		}
+		str[k++] = '\n';
+		str[k] = '\0';
 	}
-	str[a] = '\0';
-	return (*str);
+	return (str);
 }
