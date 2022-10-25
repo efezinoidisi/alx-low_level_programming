@@ -31,28 +31,39 @@ size_t listint_len(const listint_t *h)
 
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *prev, *new_node, *temp;
+	listint_t *current, *new_node;
 	unsigned int len, count;
 
-	len = listint_len(*head) - 1;
+	len = listint_len(*head);
 	if (idx > len)
-		return (NULL);
-	new_node = malloc(sizeof(listint_t));
-	if (new_node == NULL)
-		return (NULL);
-
-	temp = *head;
-	for (count = 0; temp != NULL; count++)
 	{
-		if (count == idx)
+		return (NULL);
+	}
+	else
+	{
+		current = *head;
+		new_node = malloc(sizeof(listint_t));
+		if (new_node == NULL)
+			return (NULL);
+		new_node->n = n;
+		if (idx == 0)
 		{
-			new_node->n = n;
-			new_node->next = prev->next;
-			prev->next = new_node;
-			break;
+			new_node->next = current;
+			*head = new_node;
 		}
-		prev = temp;
-		temp = temp->next;
+		else
+		{
+			for (count = 0; current != NULL; count++)
+			{
+				if (count == (idx - 1))
+				{
+					new_node->next = current->next;
+					current->next = new_node;
+					break;
+				}
+				current = current->next;
+			}
+		}
 	}
 	return (new_node);
 }
