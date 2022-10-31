@@ -36,10 +36,15 @@ int main(int ac, char **av)
 	read(fd_in, buffer, 1024);
 	write(fd_out, buffer, 1024);
 	n = close(fd_in);
-	m = close(fd_out);
-	if (n == -1 || m == -1)
+	if (n == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd FD_VALUE %d\n", fd_in);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_in);
+		exit(100);
+	}
+	m = close(fd_out);
+	if (m == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_out);
 		exit(100);
 	}
 	return (0);
