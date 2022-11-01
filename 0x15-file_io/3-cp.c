@@ -11,7 +11,7 @@
 
 int main(int ac, char **av)
 {
-	int fd_in, fd_out, n, m;
+	int fd_in, fd_out, n, m, size;
 	char buffer[1024];
 
 	if (ac != 3)
@@ -33,8 +33,8 @@ int main(int ac, char **av)
 		exit(99);
 	}
 
-	read(fd_in, buffer, 1024);
-	write(fd_out, buffer, 1024);
+	size = read(fd_in, buffer, 1024);
+	write(fd_out, buffer, size);
 	n = close(fd_in);
 	if (n == -1)
 	{
