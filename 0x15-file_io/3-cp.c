@@ -11,8 +11,8 @@
 
 int main(int ac, char **av)
 {
-	int fd_in, fd_out, n, m, size;
-	char buffer[100];
+	int fd_in, fd_out, n, m, size, count = 0;
+	char buffer[1024];
 
 	if (ac != 3)
 	{
@@ -35,21 +35,36 @@ int main(int ac, char **av)
 	size = -1;
 	while (size != 0)
 	{
-		size = read(fd_in, buffer, 100);
+		size = read(fd_in, buffer, 1024);
 		buffer[size] = '\0';
-		write(fd_out, buffer, size);
+		count += write(fd_out, buffer, size);
+		if (count == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+			exit(99);
+		}
 	}
 	n = close(fd_in);
-	if (n == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_in);
-		exit(100);
-	}
+	check_close_error(n, fd_in);
 	m = close(fd_out);
-	if (m == -1)
+	check_close_error(m, fd_out);
+	return (0);
+}
+
+
+/**
+ * check_close_error - check if a file descriptor can not close
+ * @err: return value of close call
+ * @fd: file descriptor value
+ *
+ * Return: Nothing
+ */
+
+void check_close_error(int err, int fd)
+{
+	if (err == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_out);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
-	return (0);
 }
