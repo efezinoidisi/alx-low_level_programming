@@ -12,7 +12,7 @@
 int main(int ac, char **av)
 {
 	int fd_in, fd_out, n, m, size;
-	char buffer[1024];
+	char buffer[100];
 
 	if (ac != 3)
 	{
@@ -25,16 +25,20 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	fd_out = open(av[2], O_CREAT | O_WRONLY, 0664);
+	fd_out = open(av[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 
 	if (fd_out == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
-
-	size = read(fd_in, buffer, 1024);
-	write(fd_out, buffer, size);
+	size = -1;
+	while (size != 0)
+	{
+		size = read(fd_in, buffer, 100);
+		buffer[size] = '\0';
+		write(fd_out, buffer, size);
+	}
 	n = close(fd_in);
 	if (n == -1)
 	{
