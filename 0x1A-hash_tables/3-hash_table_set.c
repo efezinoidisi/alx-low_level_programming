@@ -53,7 +53,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	node->next = NULL;
 	if (!ht->array[idx])
 	{
-		ht->array[idx] = malloc(sizeof(hash_node_t));
 		ht->array[idx] = node;
 	}
 	else
