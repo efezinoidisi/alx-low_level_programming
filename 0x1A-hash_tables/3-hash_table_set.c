@@ -37,17 +37,18 @@ unsigned int check_key(hash_table_t *ht, const char *key, unsigned int index)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int idx;
-	char *str;
+	char *str, *key_cpy;
 	hash_node_t *node;
 
 	if (ht == NULL || key == NULL || key[0] == '\0')
 		return (0);
 	idx = key_index((const unsigned char *)key, ht->size);
 	str = strdup(value);
+	key_cpy = strdup(key);
 	node = malloc(sizeof(hash_node_t));
 	if (node == NULL)
 		return (0);
-	node->key = (char *)key;
+	node->key = (char *)key_cpy;
 	node->value = str;
 	node->next = NULL;
 	if (!ht->array[idx])
