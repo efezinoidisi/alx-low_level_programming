@@ -16,7 +16,7 @@ unsigned int check_key(hash_table_t *ht, const char *key, unsigned int index)
 	temp = ht->array[index];
 	while (temp)
 	{
-		if (temp->key == key)
+		if (strcmp(temp->key, key) == 0)
 			return (1);
 		temp = temp->next;
 	}
@@ -48,7 +48,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	node = malloc(sizeof(hash_node_t));
 	if (node == NULL)
 		return (0);
-	node->key = (char *)key_cpy;
+	node->key = key_cpy;
 	node->value = str;
 	node->next = NULL;
 	if (!ht->array[idx])
@@ -58,7 +58,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
-		if (check_key(ht, key, idx))
+		if (check_key(ht, key_cpy, idx))
 		{
 			ht->array[idx]->value = str;
 			free(node);
