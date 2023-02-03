@@ -57,9 +57,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
-		if (check_key(ht, key_cpy, idx))
+		if (check_key(ht, key, idx))
 		{
 			ht->array[idx]->value = str;
+			free(node->key);
+			free(node->value);
 			free(node);
 		}
 		else
