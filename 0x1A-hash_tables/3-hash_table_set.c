@@ -49,7 +49,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (node == NULL)
 		return (0);
 	node->key = key_cpy;
-	node->value = str;
+	node->value = NULL;
 	node->next = NULL;
 	if (!ht->array[idx])
 	{
@@ -61,11 +61,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		{
 			ht->array[idx]->value = str;
 			free(node->key);
-			free(node->value);
 			free(node);
 		}
 		else
 		{
+			node->value = str;
 			node->next = ht->array[idx];
 			ht->array[idx] = node;
 		}
