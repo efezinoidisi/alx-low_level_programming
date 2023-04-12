@@ -22,7 +22,7 @@ int binary_search(int *array, size_t size, int value)
 	end = size - 1;
 	mid = (start + end) / 2;
 
-	while (start < end)
+	while (start <= end)
 	{
 		print_array(array, start, end);
 
