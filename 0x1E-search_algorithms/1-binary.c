@@ -20,23 +20,21 @@ int binary_search(int *array, size_t size, int value)
 
 	start = 0;
 	end = size - 1;
-	mid = (start + end) / 2;
 
 	while (start <= end)
 	{
 		print_array(array, start, end);
+		mid = (start + end) / 2;
 
-		if (array[mid] == value)
-			return (mid);
+		if (array[mid] < value)
+			start = mid + 1;
 		else if (array[mid] > value)
 			end = mid - 1;
 		else
-			start = mid + 1;
-
-		mid = (start + end) / 2;
+			return (mid);
 	}
 
-	print_array(array, start, end);
+	/*print_array(array, start, end);*/
 
 	return (-1);
 }
