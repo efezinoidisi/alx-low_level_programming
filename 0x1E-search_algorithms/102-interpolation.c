@@ -41,28 +41,8 @@ int interpolation_search(int *array, size_t size, int value)
 			return (pos);
 	}
 
+	printf("Valued checked array[%lu] = [%d]\n", low, array[low]);
+	if (array[low] == value)
+		return (low);
 	return (-1);
-}
-
-/**
- * print_array - print an array
- * @array: array to be printed
- * @start: index to start printing
- * @end: index to stop printing
- *
- * Return: Nothimg
- */
-
-void print_array(int *array, size_t start, size_t end)
-{
-	size_t i;
-
-	printf("Searching in array: ");
-	for (i = start; i <= end; i++)
-	{
-		if (i == end)
-			printf("%d\n", array[i]);
-		else
-			printf("%d, ", array[i]);
-	}
 }
